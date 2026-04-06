@@ -426,14 +426,6 @@ Este projeto demonstra:
 
 ---
 
-## 📞 Contato
-
-Desenvolvido como projeto de portfólio para demonstrar habilidades em desenvolvimento front-end moderno.
-
-**Stack:** Next.js 16 • React 19 • TypeScript 5 • Tailwind CSS 4 • ShadCN UI
-
----
-
 <div align="center">
 
 **⭐ Se este projeto foi útil, considere dar uma estrela!**
