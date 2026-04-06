@@ -29,9 +29,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "GudyPizza" }],
   icons: {
-    icon: [
-      { url: '/icon.svg', type: 'image/svg+xml' },
-    ],
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
   },
   openGraph: {
     title: "GudyPizza - Pizzas Artesanais Irresistíveis",

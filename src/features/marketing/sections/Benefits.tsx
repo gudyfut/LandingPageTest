@@ -1,41 +1,11 @@
 import Image from "next/image";
+import { siteContent } from "../constants/content";
 
-export default function Benefits() {
-  const benefits = [
-    {
-      title: "Receita Autêntica",
-      description:
-        "Fórmula tradicional italiana passada por gerações. Massa feita diariamente com fermentação natural de 48 horas.",
-    },
-    {
-      title: "Entrega Expressa",
-      description:
-        "Sua pizza quentinha em até 30 minutos ou grátis! Rastreamento em tempo real pelo app.",
-    },
-    {
-      title: "Pizzaiolos Certificados",
-      description:
-        "Equipe treinada em Nápoles, Itália. Cada pizza é feita com técnica e paixão.",
-    },
-    {
-      title: "Ingredientes Orgânicos",
-      description:
-        "Tomates, manjericão e vegetais de produtores locais. Sem agrotóxicos, 100% natural.",
-    },
-    {
-      title: "Garantia de Qualidade",
-      description:
-        "Não gostou? Refazemos grátis ou devolvemos seu dinheiro. Satisfação garantida.",
-    },
-    {
-      title: "Programa de Fidelidade",
-      description:
-        "A cada 10 pizzas, ganhe 1 grátis! Acumule pontos e troque por descontos exclusivos.",
-    },
-  ];
-  const leftBenefits = benefits.slice(0, 3);
-  const rightBenefits = benefits.slice(3);
-  
+export function Benefits() {
+  const { benefits } = siteContent;
+  const leftBenefits = benefits.items.slice(0, 3);
+  const rightBenefits = benefits.items.slice(3);
+
   const shelfColor = "var(--color-wood-dark)";
   const shelfBaseStyle = { backgroundColor: shelfColor };
   const shelfSupportStyle = { backgroundColor: shelfColor };
@@ -43,25 +13,22 @@ export default function Benefits() {
   return (
     <section
       id="sobre"
-      className="h-screen flex items-center py-12 relative overflow-hidden bg-primary scroll-mt-0"
+      className="min-h-screen flex items-center py-12 relative overflow-hidden bg-primary"
     >
       <div className="container mx-auto px-4 relative z-10 w-full max-h-screen overflow-y-auto">
         <div className="text-center mb-8">
           <h2 className="text-5xl md:text-6xl font-bold mb-3 text-primary-foreground">
-            Por Que Escolher a GudyPizza?
+            {benefits.title}
           </h2>
           <p className="text-xl text-primary-foreground/90 max-w-2xl mx-auto">
-            Não é só pizza, é uma experiência gastronômica italiana autêntica
+            {benefits.subtitle}
           </p>
         </div>
 
         <div className="hidden lg:grid lg:grid-cols-[1fr_auto_1fr] gap-8 items-center">
           <div className="space-y-6">
-            {leftBenefits.map((benefit, index) => (
-              <div
-                key={benefit.title}
-                className="relative px-2 pb-4"
-              >
+            {leftBenefits.map((benefit) => (
+              <div key={benefit.title} className="relative px-2 pb-4">
                 <h3 className="text-2xl font-extrabold mb-2 tracking-wide text-primary-foreground">
                   {benefit.title}
                 </h3>
@@ -98,11 +65,8 @@ export default function Benefits() {
           </div>
 
           <div className="space-y-6">
-            {rightBenefits.map((benefit, index) => (
-              <div
-                key={benefit.title}
-                className="relative px-2 pb-4 text-right"
-              >
+            {rightBenefits.map((benefit) => (
+              <div key={benefit.title} className="relative px-2 pb-4 text-right">
                 <h3 className="text-2xl font-extrabold mb-2 tracking-wide text-primary-foreground">
                   {benefit.title}
                 </h3>
@@ -127,11 +91,8 @@ export default function Benefits() {
         </div>
 
         <div className="mt-5 space-y-5 lg:hidden">
-          {benefits.map((benefit, index) => (
-            <div
-              key={`mobile-${benefit.title}`}
-              className="relative px-2 pb-4"
-            >
+          {benefits.items.map((benefit) => (
+            <div key={`mobile-${benefit.title}`} className="relative px-2 pb-4">
               <h3 className="text-xl font-extrabold mb-2 text-primary-foreground">
                 {benefit.title}
               </h3>
