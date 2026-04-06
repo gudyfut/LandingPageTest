@@ -9,7 +9,7 @@ export function MenuSection() {
     <section id="cardapio" className="min-h-screen flex items-center py-8 bg-background">
       <div className="container mx-auto px-4 w-full">
         <div className="text-center mb-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-2">{menu.title}</h2>
+          <h2 className="text-5xl md:text-6xl font-bold mb-2">{menu.title}</h2>
           <p className="text-base text-foreground/70 max-w-2xl mx-auto">{menu.subtitle}</p>
         </div>
 
