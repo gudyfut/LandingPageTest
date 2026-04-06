@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 export default function Header() {
   const scrollToSection = (sectionId: string) => {
@@ -20,7 +21,13 @@ export default function Header() {
             onClick={() => scrollToSection('hero')}
             className="flex items-center space-x-2 animate-fade-in cursor-pointer hover:opacity-80 transition-opacity justify-self-start"
           >
-            <div className="text-4xl">🍕</div>
+            <Image 
+              src="/icon.svg" 
+              alt="GudyPizza Logo" 
+              width={40} 
+              height={40}
+              className="w-10 h-10"
+            />
             <span className="text-2xl font-black tracking-tight">
               <span className="text-foreground">Gudy</span>
               <span className="text-primary">Pizza</span>

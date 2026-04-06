@@ -87,7 +87,7 @@ export default function Benefits() {
           <div className="flex justify-center">
             <div className="w-[516px] xl:w-[648px]">
               <Image
-                src="/sobre/PizzaNewBG.png"
+                src="/sobre/PizzaNoBG.png"
                 alt="Pizza no centro da seção sobre"
                 width={864}
                 height={864}

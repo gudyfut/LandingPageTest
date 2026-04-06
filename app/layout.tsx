@@ -30,10 +30,8 @@ export const metadata: Metadata = {
   authors: [{ name: "GudyPizza" }],
   icons: {
     icon: [
-      { url: '/favicon.ico', sizes: 'any' },
       { url: '/icon.svg', type: 'image/svg+xml' },
     ],
-    apple: '/apple-touch-icon.png',
   },
   openGraph: {
     title: "GudyPizza - Pizzas Artesanais Irresistíveis",
