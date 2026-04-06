@@ -199,23 +199,23 @@ export const siteContent = {
   },
 
   finalCta: {
-    emoji: "🎉",
-    title: ["Está com Fome?", "Peça Agora!"],
-    subtitle: "Sua pizza artesanal quentinha em até",
-    highlight: "30 minutos",
-    freeLabel: "GRÁTIS",
+    emoji: "💼",
+    title: ["Gostou do Projeto?", "Vamos Conversar!"],
+    subtitle: "Desenvolvedor front-end especializado em",
+    highlight: "React e Next.js",
+    freeLabel: "",
     badges: [
-      { text: "✨ Primeira compra: 20% OFF", variant: "secondary" as const },
-      { text: "🔥 Frete grátis acima de R$50", variant: "primary" as const },
+      { text: "✨ Disponível para oportunidades", variant: "secondary" as const },
+      { text: "🚀 Open to work", variant: "primary" as const },
     ],
     newsletter: {
-      label: "Cadastre seu email e ganhe",
-      highlight: "cupom de desconto",
+      label: "Entre em contato para discutir",
+      highlight: "projetos e colaborações",
       placeholder: "seu@email.com",
-      button: "Ganhar Cupom",
+      button: "Enviar Mensagem",
     },
-    mainCta: "🛵 Fazer Pedido Agora →",
-    paymentNote: "💳 Aceitamos PIX, cartões e vale-refeição",
+    mainCta: "📧 Entrar em Contato",
+    paymentNote: "💻 Respondo em até 24 horas",
   },
 
   footer: {

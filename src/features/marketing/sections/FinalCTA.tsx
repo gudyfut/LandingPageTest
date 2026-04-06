@@ -18,8 +18,7 @@ export function FinalCTA() {
           </h2>
           <p className="text-lg md:text-xl text-foreground/80 mb-6 leading-relaxed">
             {finalCta.subtitle}{" "}
-            <span className="font-bold text-primary">{finalCta.highlight}</span> ou é{" "}
-            <span className="font-bold text-secondary">{finalCta.freeLabel}</span>!
+            <span className="font-bold text-primary">{finalCta.highlight}</span>
           </p>
 
           <div className="flex flex-wrap justify-center gap-3 mb-6">

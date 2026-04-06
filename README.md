@@ -1,134 +1,382 @@
 <div align="center">
 
-# 🍕 GudyPizza - Landing Page Artesanal
+# 🍕 Landing Page - Projeto de Portfólio
 
 [![Next.js](https://img.shields.io/badge/Next.js-16.2-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+[![React](https://img.shields.io/badge/React-19.2-61DAFB?style=for-the-badge&logo=react)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.0-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
-[![ShadCN UI](https://img.shields.io/badge/ShadCN-UI-000000?style=for-the-badge)](https://ui.shadcn.com/)
 
-**Landing page profissional e de alta conversão para pizzaria artesanal**
+**Single Page Application moderna demonstrando arquitetura escalável e técnicas avançadas de front-end**
 
-[Demo](#) • [Documentação](#-estrutura-do-projeto) • [Instalação](#-instalação)
+[Demonstração](#-demonstração-de-habilidades) • [Arquitetura](#-arquitetura) • [Tecnologias](#-stack-tecnológico)
 
 </div>
 
 ---
 
-## 📋 Índice
+## 📋 Sobre o Projeto
 
-- [Sobre o Projeto](#-sobre-o-projeto)
-- [Características Principais](#-características-principais)
-- [Tecnologias](#-tecnologias)
-- [Instalação](#-instalação)
-- [Estrutura do Projeto](#-estrutura-do-projeto)
-- [Design System](#-design-system)
-- [Recursos Especiais](#-recursos-especiais)
-- [Otimizações](#-otimizações)
-- [Customização](#-customização)
+Projeto de portfólio que demonstra **habilidades avançadas em desenvolvimento front-end moderno**, implementando uma landing page completa com recursos interativos, animações sofisticadas e arquitetura escalável.
 
----
+Este projeto foi desenvolvido para demonstrar proficiência em:
 
-## 🎯 Sobre o Projeto
-
-Landing page moderna e profissional desenvolvida para **GudyPizza**, uma pizzaria artesanal especializada em pizzas de forno a lenha. O projeto combina design excepcional, performance otimizada e estratégias de conversão comprovadas.
-
-### ✨ Destaques
-
-- 🎨 **Design Orgânico**: Estética artesanal que transmite autenticidade e tradição italiana
-- 🤖 **Assets Gerados por IA**: Imagens e animações 3D de pizzas criadas com ferramentas de inteligência artificial
-- 📹 **Vídeo Interativo**: Animação 3D controlada por scroll na seção hero
-- 🎭 **Micro-interações**: Animações suaves e transições que elevam a experiência do usuário
-- ⚡ **Performance**: Otimizado para Core Web Vitals e SEO
-- 📱 **Responsivo**: Design mobile-first com layout adaptativo
+- ⚡ **Framework Moderno**: Next.js 16 com App Router e React Server Components
+- 🏗️ **Arquitetura Escalável**: Feature-Sliced Design (FSD) para organização de código
+- 🎨 **Design System Profissional**: Tailwind CSS 4 + ShadCN UI com componentes reutilizáveis
+- 🎬 **Interatividade Avançada**: Video scrubbing controlado por scroll
+- 🤖 **Integração de IA**: Assets gerados com ferramentas de inteligência artificial
+- 🚀 **Performance Otimizada**: Core Web Vitals e best practices
 
 ---
 
-## 🚀 Características Principais
+## 🎯 Demonstração de Habilidades
 
-### 🎬 Recursos Especiais
+### 💻 Desenvolvimento Front-end Avançado
 
-#### **Animação 3D com Scroll Scrubbing**
-O projeto apresenta uma **animação 3D de pizza gerada por IA** na seção hero que responde ao scroll do usuário. À medida que você rola a página, a pizza gira e se monta dinamicamente, criando uma experiência visual memorável.
+#### **1. Video Scrubbing com Scroll**
+Implementação customizada de controle de vídeo sincronizado com scroll usando `requestAnimationFrame`:
 
 ```typescript
-// Tecnologia: Video scrubbing com requestAnimationFrame
-// O vídeo progride suavemente conforme o scroll do usuário
+// Técnica avançada: interpolação suave (lerp) para controle de vídeo
+const lerp = (start: number, end: number, factor: number) => {
+  return start + (end - start) * factor;
+};
+
+const handleScroll = () => {
+  const scrollProgress = calculateScrollProgress();
+  targetTime.current = scrollProgress * video.duration;
+  
+  // Smooth animation loop
+  currentTime.current = lerp(currentTime.current, targetTime.current, 0.1);
+  video.currentTime = currentTime.current;
+};
 ```
 
-#### **Imagens Geradas por IA**
-Todas as imagens de pizzas foram criadas utilizando **ferramentas de IA generativa**, garantindo:
-- 🎨 Consistência visual perfeita
-- 🖼️ Alta qualidade e resolução
-- 🍕 Apresentação apetitosa e profissional
-- 🎭 Estilo artístico único
+**Resultado:** Experiência interativa única onde o vídeo 3D responde ao scroll do usuário de forma suave e responsiva.
 
-### 📊 11 Elementos Essenciais de Conversão
+#### **2. Sistema de Animações Coordenadas**
+Animações em cascata usando staggered delays para criar ritmo visual:
 
-Implementação completa do framework de landing pages de alta conversão:
+```typescript
+// Configuração centralizada de timings
+export const staggerDelays = {
+  hero: {
+    badge: '0.1s',
+    title: ['0.2s', '0.3s', '0.4s', '0.5s'],
+    subtitle: '0.6s',
+    cta: '0.7s',
+    stats: '0.8s'
+  }
+};
+```
 
-1. ✅ **Hero Impactante** - Título massivo com animação em cascata
-2. ✅ **CTA Estratégico** - Botões de conversão em posições-chave
-3. ✅ **Social Proof** - +5.000 clientes, avaliação 4.9/5 estrelas
-4. ✅ **Cardápio Visual** - Cards interativos com hover effects
-5. ✅ **Benefícios Claros** - 6 diferenciais com layout criativo
-6. ✅ **Depoimentos Reais** - Avaliações autênticas de clientes
-7. ✅ **FAQ Completo** - 10 perguntas frequentes com accordion
-8. ✅ **Urgência** - "30min ou é grátis" para estimular ação
-9. ✅ **Incentivos** - 20% OFF na primeira compra
-10. ✅ **Captura de Email** - Newsletter com ofertas exclusivas
-11. ✅ **Footer Completo** - Informações de contato e links úteis
+#### **3. Navegação Suave com Offset Dinâmico**
+Scroll customizado com compensação precisa do header fixo:
 
-### 🎨 Experiência do Usuário
+```typescript
+const scrollToSection = (sectionId: string) => {
+  const element = document.getElementById(sectionId);
+  const headerHeight = 60;
+  const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+  const offsetPosition = elementPosition - headerHeight;
+  
+  window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+};
+```
 
-- **Navegação Suave**: Scroll animado para seções com compensação precisa do header fixo
-- **Feedback Visual**: Hover states, transitions e micro-interações em todos os elementos clicáveis
-- **Staggered Animations**: Elementos aparecem em sequência criando ritmo visual
-- **Performance Otimizada**: Lazy loading de imagens e código otimizado
+### 🏗️ Arquitetura e Clean Code
+
+#### **Feature-Sliced Design (FSD)**
+Organização modular e escalável do código:
+
+```
+src/
+├── features/
+│   └── marketing/
+│       ├── sections/          # Componentes de UI
+│       ├── constants/         # Conteúdo centralizado
+│       ├── styles/            # Configurações de estilo
+│       └── hooks/             # Custom hooks
+├── components/ui/             # Componentes reutilizáveis
+└── lib/                       # Utilitários
+```
+
+**Benefícios:**
+- ✅ Separação clara de responsabilidades
+- ✅ Facilita manutenção e escalabilidade
+- ✅ Reutilização de código
+- ✅ Testes mais simples
+
+#### **Conteúdo Centralizado**
+Todo o conteúdo em um único arquivo para fácil gestão:
+
+```typescript
+// src/features/marketing/constants/content.ts
+export const siteContent = {
+  brand: { /* ... */ },
+  hero: { /* ... */ },
+  menu: { /* ... */ },
+  // Facilita internacionalização futura
+};
+```
+
+### 🤖 Integração de Tecnologias de IA
+
+#### **Assets Gerados por IA**
+
+**Imagens de Produto:**
+- Criadas com **ferramentas de IA generativa** (Midjourney/DALL-E)
+- Consistência visual perfeita
+- Alta qualidade e estilo único
+- Formato otimizado para web (PNG com transparência)
+
+**Animação 3D:**
+- Vídeo 3D de produto renderizado
+- Otimizado para controle por scroll
+- Formato MP4 processado para performance web
+
+**Impacto:** Demonstra capacidade de integrar workflows modernos de design com IA no processo de desenvolvimento.
 
 ---
 
-## 🛠 Tecnologias
+## 🛠 Stack Tecnológico
 
-### Core Stack
+### **Core Technologies**
 
 | Tecnologia | Versão | Uso |
 |------------|--------|-----|
-| **Next.js** | 16.2.1 | Framework React com App Router e Server Components |
-| **React** | 19.2.4 | Biblioteca UI com novos recursos |
-| **TypeScript** | 5.x | Type safety e developer experience |
-| **Tailwind CSS** | 4.0 | Utility-first styling |
-| **ShadCN UI** | 4.1.1 | Componentes acessíveis e customizáveis |
+| **Next.js** | 16.2.1 | Framework React com App Router, SSR, e otimizações automáticas |
+| **React** | 19.2.4 | Biblioteca UI com hooks modernos e server components |
+| **TypeScript** | 5.x | Type safety, autocompletion e melhor DX |
+| **Tailwind CSS** | 4.0 | Utility-first CSS com JIT compiler |
+| **ShadCN UI** | Latest | Sistema de componentes acessíveis baseado em Radix UI |
 
-### Bibliotecas Adicionais
+### **Bibliotecas e Ferramentas**
 
-- **Radix UI**: Componentes primitivos acessíveis
-- **Lucide React**: Ícones modernos e otimizados
-- **Class Variance Authority**: Gestão de variantes de componentes
-- **Tailwind Merge**: Resolução inteligente de classes CSS
+- **Radix UI**: Primitivos acessíveis (Accordion, Avatar, etc.)
+- **Lucide React**: Ícones SVG otimizados
+- **Class Variance Authority**: Gestão type-safe de variantes de componentes
+- **Tailwind Merge**: Resolução inteligente de conflitos de classes CSS
+- **clsx**: Construção condicional de classNames
 
-### Ferramentas de IA Utilizadas
+### **Developer Experience**
 
-- **Geração de Imagens**: Criação de renders 3D de pizzas
-- **Animações**: Vídeo 3D interativo na seção hero
+- ✅ **ESLint**: Linting e code quality
+- ✅ **TypeScript Strict Mode**: Type safety máximo
+- ✅ **Hot Reload**: Desenvolvimento ágil
+- ✅ **Auto-formatting**: Código consistente
 
 ---
 
-## 📦 Instalação
+## 🏗 Arquitetura
 
-### Pré-requisitos
+### **Estrutura do Projeto**
+
+```
+📁 src/
+├── 📁 app/                           # Next.js App Router
+│   ├── layout.tsx                   # Root layout + SEO metadata
+│   ├── page.tsx                     # Single page application
+│   └── globals.css                  # Design tokens e estilos globais
+│
+├── 📁 features/                      # Feature-Sliced Design
+│   └── 📁 marketing/                 # Feature: Marketing Landing Page
+│       ├── 📁 sections/              # UI Components
+│       │   ├── Header.tsx           # Navegação sticky + scroll suave
+│       │   ├── Hero.tsx             # Video scrubbing + animações
+│       │   ├── MenuSection.tsx      # Grid responsivo + hover effects
+│       │   ├── Benefits.tsx         # Layout customizado
+│       │   ├── Testimonials.tsx     # Social proof + ratings
+│       │   ├── FAQ.tsx              # Accordion component
+│       │   ├── FinalCTA.tsx         # Call-to-action + form
+│       │   └── Footer.tsx           # Footer multi-coluna
+│       │
+│       ├── 📁 constants/
+│       │   └── content.ts           # Conteúdo centralizado
+│       │
+│       ├── 📁 styles/
+│       │   └── animations.ts        # Configurações de animação
+│       │
+│       └── index.ts                 # Barrel exports
+│
+├── 📁 components/ui/                 # Design System
+│   ├── button.tsx                   # Component + variants
+│   ├── card.tsx
+│   ├── badge.tsx
+│   ├── accordion.tsx                # Radix UI wrapper
+│   └── ...                          # Outros componentes ShadCN
+│
+├── 📁 lib/
+│   └── utils.ts                     # Helper functions
+│
+└── 📁 types/                         # TypeScript definitions
+```
+
+### **Padrões Implementados**
+
+#### **1. Composição de Componentes**
+```typescript
+// Componentes altamente composáveis
+<Card className="...">
+  <Avatar>...</Avatar>
+  <Badge variant="secondary">...</Badge>
+</Card>
+```
+
+#### **2. Separation of Concerns**
+- **UI Components**: Apenas apresentação visual
+- **Constants**: Dados e conteúdo
+- **Styles**: Configurações de tema e animações
+- **Hooks**: Lógica reutilizável
+
+#### **3. Type Safety**
+```typescript
+// Tipos fortemente tipados
+interface MenuPizza {
+  name: string;
+  image: string;
+  description: string;
+}
+```
+
+---
+
+## 🎨 Design System
+
+### **Design Tokens**
+
+```css
+:root {
+  /* Cores Primárias */
+  --color-terracotta: #d67c3e;    /* Primary brand color */
+  --color-olive: #6b8e23;          /* Secondary color */
+  
+  /* Neutrals */
+  --color-cream: #faf7f2;          /* Background */
+  --charcoal: #2d2d2d;             /* Text */
+  
+  /* Semantic Colors */
+  --primary: var(--color-terracotta);
+  --secondary: var(--color-olive);
+}
+```
+
+### **Typography Scale**
+
+- **Display Font**: Fraunces (Serif com personalidade)
+- **Body Font**: DM Sans (Sans-serif moderna)
+- **Scale**: Tipografia responsiva com classes Tailwind
+
+### **Component Variants**
+
+```typescript
+// Exemplo: Button variants usando CVA
+const buttonVariants = cva(
+  "base-classes",
+  {
+    variants: {
+      variant: { default: "...", outline: "..." },
+      size: { sm: "...", lg: "..." }
+    }
+  }
+);
+```
+
+---
+
+## ⚡ Performance e Otimizações
+
+### **Core Web Vitals**
+
+✅ **LCP (Largest Contentful Paint)**: < 2.5s
+- Next.js Image optimization
+- Lazy loading de imagens
+- Priority loading para hero
+
+✅ **FID (First Input Delay)**: < 100ms
+- Code splitting automático
+- Componentes otimizados
+
+✅ **CLS (Cumulative Layout Shift)**: < 0.1
+- Dimensões fixas para imagens
+- Skeleton states quando necessário
+
+### **Técnicas Implementadas**
+
+```typescript
+// 1. Next.js Image com lazy loading
+<Image
+  src="/pizza.png"
+  width={300}
+  height={225}
+  loading="eager" // ou "lazy" conforme necessidade
+  alt="..."
+/>
+
+// 2. Video otimizado
+<video preload="auto" muted playsInline>
+  <source src="/video_processed.mp4" type="video/mp4" />
+</video>
+
+// 3. CSS-in-JS otimizado com Tailwind JIT
+className="hover:scale-110 transition-transform duration-300"
+```
+
+### **Lighthouse Score Target**
+
+- ⚡ Performance: 90+
+- ♿ Accessibility: 100
+- 🎯 Best Practices: 100
+- 🔍 SEO: 90+
+
+---
+
+## 🎯 Recursos Implementados
+
+### **Interatividade**
+
+- ✅ Scroll suave entre seções com offset compensado
+- ✅ Video scrubbing controlado por scroll
+- ✅ Hover effects e micro-interações
+- ✅ Animações em cascata (staggered)
+- ✅ Accordion para FAQ
+- ✅ Sticky header com backdrop blur
+
+### **Responsividade**
+
+- ✅ Mobile-first design
+- ✅ Breakpoints: sm, md, lg, xl
+- ✅ Grid system responsivo
+- ✅ Typography scale adaptativo
+- ✅ Touch-friendly interactions
+
+### **Acessibilidade**
+
+- ✅ Semantic HTML5
+- ✅ ARIA labels onde necessário
+- ✅ Navegação por teclado
+- ✅ Contraste de cores (WCAG AA)
+- ✅ Focus states visíveis
+- ✅ Reduced motion support
+
+---
+
+## 📦 Instalação e Uso
+
+### **Requisitos**
 
 - Node.js 20.x ou superior
 - npm ou yarn
 
-### Passos
+### **Setup**
 
 ```bash
 # Clone o repositório
-git clone https://github.com/seu-usuario/gudypizza-landing.git
+git clone https://github.com/seu-usuario/landing-page-portfolio.git
 
 # Entre no diretório
-cd gudypizza-landing
+cd landing-page-portfolio
 
 # Instale as dependências
 npm install
@@ -137,254 +385,58 @@ npm install
 npm run dev
 ```
 
-Acesse [http://localhost:3000](http://localhost:3000) no navegador.
+Acesse [http://localhost:3000](http://localhost:3000)
 
-### Scripts Disponíveis
+### **Scripts**
 
 ```bash
-npm run dev      # Inicia servidor de desenvolvimento
-npm run build    # Build de produção
-npm run start    # Inicia servidor de produção
-npm run lint     # Executa linter
+npm run dev       # Desenvolvimento (hot reload)
+npm run build     # Build de produção
+npm run start     # Servidor de produção
+npm run lint      # Executar linter
 ```
 
 ---
 
-## 🏗 Estrutura do Projeto
+## 🔑 Principais Aprendizados
 
-Arquitetura baseada em **Feature-Sliced Design (FSD)** para organização escalável:
+Este projeto demonstra:
 
-```
-📁 LandingPageTest/
-├── 📁 src/
-│   ├── 📁 app/                    # Next.js App Router
-│   │   ├── layout.tsx            # Layout raiz com metadados SEO
-│   │   ├── page.tsx              # Página principal
-│   │   ├── globals.css           # Estilos globais e variáveis CSS
-│   │   └── favicon.ico
-│   │
-│   ├── 📁 features/               # Features organizadas por domínio
-│   │   └── 📁 marketing/          # Feature de marketing
-│   │       ├── 📁 sections/       # Seções da landing page
-│   │       │   ├── Header.tsx    # Navegação sticky com scroll suave
-│   │       │   ├── Hero.tsx      # Hero com vídeo 3D e CTAs
-│   │       │   ├── MenuSection.tsx # Cardápio visual interativo
-│   │       │   ├── Benefits.tsx  # Benefícios com layout criativo
-│   │       │   ├── Testimonials.tsx # Avaliações de clientes
-│   │       │   ├── FAQ.tsx       # Perguntas frequentes
-│   │       │   ├── FinalCTA.tsx  # CTA final com urgência
-│   │       │   └── Footer.tsx    # Rodapé completo
-│   │       │
-│   │       ├── 📁 constants/      # Conteúdo centralizado
-│   │       │   └── content.ts    # Todo o texto da landing page
-│   │       │
-│   │       ├── 📁 styles/         # Estilos e animações
-│   │       │   └── animations.ts # Configurações de animação
-│   │       │
-│   │       └── index.ts          # Barrel export
-│   │
-│   ├── 📁 components/             # Componentes reutilizáveis
-│   │   └── 📁 ui/                # Componentes ShadCN UI
-│   │       ├── button.tsx
-│   │       ├── card.tsx
-│   │       ├── badge.tsx
-│   │       ├── accordion.tsx
-│   │       └── ...
-│   │
-│   ├── 📁 hooks/                  # Custom React hooks
-│   ├── 📁 lib/                    # Utilitários
-│   └── 📁 types/                  # TypeScript types
-│
-├── 📁 public/                     # Assets estáticos
-│   ├── 📁 videos/                 # Vídeo 3D da pizza
-│   ├── 📁 pizzamenu/              # Imagens das pizzas (AI-generated)
-│   ├── 📁 sobre/                  # Imagens da seção sobre
-│   └── icon.svg
-│
-├── components.json               # Configuração ShadCN
-├── tailwind.config.ts            # Configuração Tailwind
-├── tsconfig.json                 # Configuração TypeScript
-└── package.json
-```
-
-### 🎯 Princípios de Organização
-
-- **Feature-Sliced Design**: Código organizado por domínio de negócio
-- **Separação de Responsabilidades**: Lógica, apresentação e dados separados
-- **Conteúdo Centralizado**: Todo texto em `constants/content.ts` para fácil edição
-- **Componentes Reutilizáveis**: UI components isolados e testáveis
+1. **Arquitetura Moderna**: Feature-Sliced Design para aplicações escaláveis
+2. **React Avançado**: Hooks customizados, refs, efeitos complexos
+3. **Performance**: Otimizações de rendering e Core Web Vitals
+4. **TypeScript**: Type safety em toda a aplicação
+5. **Design Systems**: Componentes reutilizáveis e consistentes
+6. **Animações Web**: requestAnimationFrame e técnicas avançadas
+7. **Acessibilidade**: WCAG compliance e melhores práticas
+8. **Workflow com IA**: Integração de assets gerados por ferramentas de IA
 
 ---
 
-## 🎨 Design System
+## 🚀 Melhorias Futuras
 
-### Paleta de Cores
-
-Cores cuidadosamente selecionadas para transmitir calor, autenticidade e tradição:
-
-```css
-/* Cores Primárias */
---color-terracotta: #d67c3e;  /* Remete ao forno a lenha */
---color-olive: #6b8e23;       /* Manjericão fresco */
-
-/* Backgrounds */
---color-cream: #faf7f2;       /* Fundo suave e acolhedor */
---color-wood-dark: #8b6f47;   /* Detalhes de madeira */
-
-/* Textos */
---charcoal: #2d2d2d;          /* Texto principal */
-```
-
-### Tipografia
-
-- **Display (Títulos)**: Fraunces - Serif com personalidade e charme artesanal
-- **Body (Corpo)**: DM Sans - Sans-serif moderna, legível e profissional
-
-### Componentes
-
-Todos os componentes seguem princípios de **acessibilidade (WCAG AA)** e **design consistente**:
-
-- States visuais claros (hover, active, focus)
-- Animações respeitam `prefers-reduced-motion`
-- Contraste de cores adequado
-- Navegação por teclado
+- [ ] Internacionalização (i18n)
+- [ ] Testes unitários (Jest + React Testing Library)
+- [ ] Testes E2E (Playwright)
+- [ ] Analytics integration
+- [ ] A/B testing setup
+- [ ] CMS integration
+- [ ] Progressive Web App (PWA)
+- [ ] Storybook para documentação de componentes
 
 ---
 
-## ✨ Recursos Especiais
+## 📞 Contato
 
-### 🎬 Video Scrubbing na Hero
+Desenvolvido como projeto de portfólio para demonstrar habilidades em desenvolvimento front-end moderno.
 
-A seção hero utiliza uma técnica avançada de **video scrubbing** onde o progresso do vídeo é sincronizado com o scroll:
-
-```typescript
-// Implementação simplificada
-const handleScroll = () => {
-  const scrollProgress = calculateScrollProgress();
-  video.currentTime = scrollProgress * video.duration;
-};
-```
-
-**Benefícios:**
-- Experiência interativa única
-- Engajamento visual imediato
-- Storytelling através do scroll
-
-### 🤖 Assets Gerados por IA
-
-#### Imagens de Pizzas
-- **Ferramentas**: Midjourney / DALL-E / Stable Diffusion
-- **Estilo**: Realista, apetitoso, alta qualidade
-- **Formato**: PNG com fundo transparente
-- **Localização**: `/public/pizzamenu/`
-
-#### Animação 3D
-- **Vídeo**: Animação de pizza sendo montada
-- **Duração**: Otimizada para scroll experience
-- **Formato**: MP4 processado para web
-- **Localização**: `/public/videos/`
-
-### 🎭 Sistema de Animações
-
-Animações coordenadas usando **staggered delays**:
-
-```typescript
-// Cada elemento entra em sequência criando ritmo
-staggerDelays = {
-  hero: {
-    badge: '0.1s',
-    title: ['0.2s', '0.3s', '0.4s', '0.5s'],
-    subtitle: '0.6s',
-    cta: '0.7s'
-  }
-}
-```
-
----
-
-## ⚡ Otimizações
-
-### Performance
-
-- ✅ **Image Optimization**: Next.js Image com lazy loading
-- ✅ **Code Splitting**: Carregamento sob demanda de componentes
-- ✅ **CSS Optimization**: Tailwind JIT compiler
-- ✅ **Video Optimization**: Vídeo comprimido e otimizado para web
-
-### SEO
-
-- ✅ **Meta Tags**: Open Graph, Twitter Cards
-- ✅ **Semantic HTML**: Estrutura semântica correta
-- ✅ **Sitemap**: Geração automática
-- ✅ **Keywords**: Otimização para "pizza artesanal", "forno a lenha"
-
-### Acessibilidade
-
-- ✅ **ARIA Labels**: Navegação assistiva
-- ✅ **Keyboard Navigation**: Navegação completa por teclado
-- ✅ **Color Contrast**: WCAG AA compliance
-- ✅ **Focus States**: Estados de foco visíveis
-
----
-
-## 🔧 Customização
-
-### Editar Conteúdo
-
-Todo o conteúdo está centralizado em um único arquivo:
-
-```typescript
-// src/features/marketing/constants/content.ts
-export const siteContent = {
-  brand: {
-    name: "GudyPizza",
-    tagline: "Forno a Lenha Artesanal"
-  },
-  hero: {
-    title: { /* ... */ },
-    subtitle: "..."
-  }
-  // ... resto do conteúdo
-}
-```
-
-### Personalizar Cores
-
-```css
-/* src/app/globals.css */
-:root {
-  --color-terracotta: #d67c3e; /* Sua cor primária */
-  --color-olive: #6b8e23;      /* Sua cor secundária */
-}
-```
-
-### Adicionar Seções
-
-1. Crie novo componente em `src/features/marketing/sections/`
-2. Adicione ao barrel export em `index.ts`
-3. Importe e use em `src/app/page.tsx`
-
----
-
-## 📄 Licença
-
-Este projeto é privado e desenvolvido exclusivamente para **GudyPizza**.
-
----
-
-## 👨‍💻 Desenvolvedor
-
-Desenvolvido com 💚 usando as melhores práticas de desenvolvimento web moderno.
-
-**Stack:** Next.js 16 • React 19 • TypeScript 5 • Tailwind CSS 4
+**Stack:** Next.js 16 • React 19 • TypeScript 5 • Tailwind CSS 4 • ShadCN UI
 
 ---
 
 <div align="center">
 
-### 🍕 **GudyPizza** - Pizzas Artesanais Feitas com Amor
-
-**© 2026 • Todos os direitos reservados**
+**⭐ Se este projeto foi útil, considere dar uma estrela!**
 
 </div>
 
